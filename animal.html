@@ -1,42 +1,54 @@
 <!DOCTYPE html>
 <html>
- <head>
+
+<head>
     <title>Animals Page</title>
     <header>Animal game by Viplav Billa</header>
- </head>
+</head>
+
 <body>
 
-<h2>Getting input</h2>
+    <h2>Getting input</h2>
 
-<form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+    <form>
+        <label for="The hidden animal type">What is your age </label>
+        <input type="password" id="The hidden animal type" name="form1_age" min=10 max=50 step=2 value=Chicken> <br>
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+        <label for="Guess the nickname">What is your nickname </label>
+        <input type="text" id="Guess the nickname" name="form1_nick" autofocus> <br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
-</form>
+        <input type="button" onclick="checkAnimal()" value="Check the guess">
+    </form>
 
 
-<p id="result">This text will be replaced </p>
+    <p id="result">This text will be replaced </p>
 
-<script> 
+    <script>
 
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }
-}
-</script>
+        let wrong = 0;
+        let correct = 0;
+
+        function checkAnimal() {
+            console.log("Getting form values")
+            age = document.getElementById("The hidden animal type").value
+            nick = document.getElementById("Guess the nickname").value
+            if (age === nick) {
+                alert("Ruff Ruff")
+                correct++;
+            } else {
+                alert("Grrr")
+                wrong++;
+            }
+
+            let out = document.getElementById("result")
+            if (age == nick) {
+                out.innerHTML = `<p>correct Count: ${correct}</p>`
+            } else {
+                out.innerHTML = `<p>Wrong Count: ${wrong}</p>`
+            }
+        }
+    </script>
 
 </body>
-</html> 
+
+</html>
