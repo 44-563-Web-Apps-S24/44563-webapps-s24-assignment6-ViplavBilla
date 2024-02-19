@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Discount Page</title>
+        <header>Viplav Billa Discount calculations</header>
+    </head>
+<body>
+
+<h2>Getting input</h2>
+<form>
+    <label for="price">Enter price per </label>
+    <input type ="number" id="price" name="price" value=10> <br>
+    <label for="noitems">Enter the number of items </label>
+    <input type ="number" id="noitems" name="itemsno" value=9> <br>
+    <label for="discountper">Enter the discount percent </label>
+    <input type ="number" id="discountper" name="discountPer" value=5> <br>
+    <input type="button" onclick="discount()" value="Show total">
+</form>
+<p id="discountTotal">sdfg</p>
+
+<script>
+    function discount(){
+        let iprice = parseFloat(document.getElementById("price").value);
+        let icount = parseInt(document.getElementById("noitems").value);
+        let idiscount = parseFloat(document.getElementById("discountper").value);
+        let myOutput = "";
+        for(let i=0;i<5;i++){
+            let discountPercent=idiscount + i;
+            let totalCost=iprice*icount*(1-discountPercent/100);
+            myOutput+=`${discountPercent}% is ${totalCost.toFixed(1)}; `;
+        }
+        document.getElementById("discountTotal").innerHTML="Totals are: "+myOutput;
+    }
+
+</script>
+</body>
+</html>
